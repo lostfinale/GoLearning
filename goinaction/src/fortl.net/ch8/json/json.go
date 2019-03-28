@@ -9,15 +9,19 @@ import (
 
 type (
 
-	server struct {
-		ipAddress string `json:"ip"`
-		sid int `json:"id"`
-		sName string `json:"name"`
+	Server struct {
+		IpAddress string `json:"ip"`
+		Sid int `json:"id"`
+		SName string `json:"name"`
 	}
 
-	platServer struct {
-		serverList []server `json:"servers"`
-		oper string `json:"plat"`
+	PlatServer struct {
+		ServerList []Server `json:"list"`
+		Oper string `json:"plat"`
+	}
+
+	Ret struct {
+		R PlatServer `json:`
 	}
 )
 
@@ -28,12 +32,12 @@ func init() {
 }
 
 func main() {
-	file, err := os.Open(file)
-	//file, err := os.OpenFile(file, os.O_RDONLY, 0)
+	//file, err := os.Open(file)
+	file, err := os.OpenFile(file, os.O_RDONLY, 0)
 	if err != nil {
 		log.Fatalln("Failed to open error json file:", err)
 	}
-	var ps platServer
+	var ps PlatServer
 	err = json.NewDecoder(file).Decode(&ps)
 	if err != nil {
 		log.Println("ERROR:", err)
