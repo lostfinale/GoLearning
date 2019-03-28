@@ -17,16 +17,12 @@ type notifier interface {
 	notify()
 }
 
-func sendNotification(n notifier) {
-	n.notify()
-}
+
 
 type user struct {
 	name string
 	email string
 }
-
-
 
 //notify 使用值接收者实现了一个方法
 func (u *user) notify() {
@@ -42,6 +38,10 @@ type duration int
 
 func (d *duration) pretty() string {
 	return fmt.Sprintf("Duration: %d", d)
+}
+
+func sendNotification(n notifier) {
+	n.notify()
 }
 
 func main() {
