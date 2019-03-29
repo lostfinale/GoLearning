@@ -21,7 +21,7 @@ type (
 	}
 
 	Ret struct {
-		R PlatServer `json:`
+		R PlatServer `json:"server"`
 	}
 )
 
@@ -37,7 +37,7 @@ func main() {
 	if err != nil {
 		log.Fatalln("Failed to open error json file:", err)
 	}
-	var ps PlatServer
+	var ps Ret
 	err = json.NewDecoder(file).Decode(&ps)
 	if err != nil {
 		log.Println("ERROR:", err)

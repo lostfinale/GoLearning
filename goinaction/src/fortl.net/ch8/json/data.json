@@ -1,5 +1,5 @@
 {
-  "servers": {
+  "server": {
     "list": [
       {
         "ip": "193.2.3.4",
@@ -12,6 +12,7 @@
         "name": "s2"
       }
     ],
-    "plat": "tanwan"
+    "plat": "XY"
   }
 }
+
