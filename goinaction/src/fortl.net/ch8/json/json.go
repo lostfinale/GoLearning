@@ -31,18 +31,21 @@ func init() {
 	log.SetFlags(log.Ldate | log.Lmicroseconds | log.Lshortfile)
 }
 
+
 func main() {
 	//file, err := os.Open(file)
 	file, err := os.OpenFile(file, os.O_RDONLY, 0)
 	if err != nil {
 		log.Fatalln("Failed to open error json file:", err)
 	}
-	var ps Ret
+	var ps PlatServer
 	err = json.NewDecoder(file).Decode(&ps)
 	if err != nil {
 		log.Println("ERROR:", err)
 		return
 	}
+
+
 
 	fmt.Println(ps)
 }
